@@ -1,0 +1,663 @@
+clear all;
+close all; clc;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% d10=func_10();
+% d20=func_20();
+% d30=func_30();
+% d50=func_50();
+% d75=func_75();
+% d100=func_100();
+% d150=func_150();
+% d200=func_200();
+d300=func_300();
+% d400=func_400();
+% d500=func_500();
+% d600=func_600();
+%trajectori%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% x_10=d10(:,8)-d10(:,14);
+% x_20=d20(:,8)-d20(:,14);
+% x_30=d30(:,8)-d30(:,14);
+% x_50=d50(:,8)-d50(:,14);
+% x_75=d75(:,8)-d75(:,14);
+% x_100=d100(:,8)-d100(:,14);
+% x_150=d150(:,8)-d150(:,14);
+% x_200=d200(:,8)-d200(:,14);
+x_300=d300(:,8)-d300(:,14);
+% x_400=d400(:,8)-d400(:,14);
+% x_500=d500(:,8)-d500(:,14);
+% x_600=d600(:,8)-d600(:,14);
+% 
+% y_10=d10(:,9)-d10(:,15);
+% y_20=d20(:,9)-d20(:,15);
+% y_30=d30(:,9)-d30(:,15);
+% y_50=d50(:,9)-d50(:,15);
+% y_75=d75(:,9)-d75(:,15);
+% y_100=d100(:,9)-d100(:,15);
+% y_150=d150(:,9)-d150(:,15);
+% y_200=d200(:,9)-d200(:,15);
+y_300=d300(:,9)-d300(:,15);
+% y_400=d400(:,9)-d400(:,15);
+% y_500=d500(:,9)-d500(:,15);
+% y_600=d600(:,9)-d600(:,15);
+% 
+% figure
+% plot(x_10-250,y_10+50,'-','MarkerSize',20,'LineWidth',2)
+% xlabel('x (\AA)','Interpreter','latex')
+% ylabel('y (\AA)','Interpreter','latex')
+% hold on
+% plot(x_20-350,y_20,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_30-150,y_30,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_50-100,y_50-100,'-','MarkerSize',20,'LineWidth',2)
+% legend('T=10 K','T=20 K','T=30 K','T=50 K')
+% 
+% figure
+% plot(x_75-300,y_75-800,'-','MarkerSize',20,'LineWidth',2)
+% xlabel('x (\AA)','Interpreter','latex')
+% ylabel('y (\AA)','Interpreter','latex')
+% hold on
+% plot(x_100,y_100,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_150,y_150-100,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_200+200,y_200-500,'-','MarkerSize',20,'LineWidth',2)
+% legend('T=75 K','T=100 K','T=150 K','T=200 K')
+% 
+figure
+plot(x_300,y_300-1000,'-','MarkerSize',20,'LineWidth',2)
+xlabel('x (\AA)','Interpreter','latex')
+ylabel('y (\AA)','Interpreter','latex')
+% hold on
+% plot(x_400-1100,y_400-1300,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_500-2500,y_500,'-','MarkerSize',20,'LineWidth',2)
+% hold on
+% plot(x_600-500,y_600,'-','MarkerSize',20,'LineWidth',2)
+% legend('T=300 K','T=400 K','T=500 K','T=600 K')
+%MSD-t%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d10(i+(j-1)*5000,8)-d10(i+(j-1)*5000,14);
+%         datay(i,j)=d10(i+(j-1)*5000,9)-d10(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD10=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD10(i,1)= MSD10(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% figure
+% plot(Time,MSD10(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d20(i+(j-1)*5000,8)-d20(i+(j-1)*5000,14);
+%         datay(i,j)=d20(i+(j-1)*5000,9)-d20(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD20=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD20(i,1)= MSD20(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD20(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d30(i+(j-1)*5000,8)-d30(i+(j-1)*5000,14);
+%         datay(i,j)=d30(i+(j-1)*5000,9)-d30(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD30=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD30(i,1)= MSD30(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD30(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d50(i+(j-1)*5000,8)-d50(i+(j-1)*5000,14);
+%         datay(i,j)=d50(i+(j-1)*5000,9)-d50(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD50=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD50(i,1)= MSD50(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD50(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% legend('T=10 K','T=20 K','T=30 K','T=50 K')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%secondMSD%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d75(i+(j-1)*5000,8)-d75(i+(j-1)*5000,14);
+%         datay(i,j)=d75(i+(j-1)*5000,9)-d75(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD75=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD75(i,1)= MSD75(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% figure
+% plot(Time,MSD75(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d100(i+(j-1)*5000,8)-d100(i+(j-1)*5000,14);
+%         datay(i,j)=d100(i+(j-1)*5000,9)-d100(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD100=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD100(i,1)= MSD100(i,1) + datax(i,j)/22  + datay(i,j)/22;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD100(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d150(i+(j-1)*5000,8)-d150(i+(j-1)*5000,14);
+%         datay(i,j)=d150(i+(j-1)*5000,9)-d150(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD150=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD150(i,1)= MSD150(i,1) + datax(i,j)/18  + datay(i,j)/18;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD150(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d200(i+(j-1)*5000,8)-d200(i+(j-1)*5000,14);
+%         datay(i,j)=d200(i+(j-1)*5000,9)-d200(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD200=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD200(i,1)= MSD200(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD200(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% legend('T=75 K','T=100 K','T=150 K','T=200 K')
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%thirdMSD%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d300(i+(j-1)*5000,8)-d300(i+(j-1)*5000,14);
+%         datay(i,j)=d300(i+(j-1)*5000,9)-d300(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD300=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD300(i,1)= MSD300(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% figure
+% plot(Time,MSD300(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d400(i+(j-1)*5000,8)-d400(i+(j-1)*5000,14);
+%         datay(i,j)=d400(i+(j-1)*5000,9)-d400(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD400=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD400(i,1)= MSD400(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD400(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% hold on
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d500(i+(j-1)*5000,8)-d500(i+(j-1)*5000,14);
+%         datay(i,j)=d500(i+(j-1)*5000,9)-d500(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD500=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD500(i,1)= MSD500(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD500(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% datax=zeros(5000,20);
+% datay=zeros(5000,20);
+% for i=1:5000
+%     for j=1:20
+%         datax(i,j)=d600(i+(j-1)*5000,8)-d600(i+(j-1)*5000,14);
+%         datay(i,j)=d600(i+(j-1)*5000,9)-d600(i+(j-1)*5000,15);
+%     end
+% end
+% for i=1:20
+%     datax(:,i)=datax(:,i)-datax(1,i);
+%     datay(:,i)=datay(:,i)-datay(1,i);
+% end
+% datax=datax.*datax;
+% datay=datay.*datay;
+% MSD600=zeros(5000,1);
+% for i=1:5000
+%     for j=1:20
+%        MSD600(i,1)= MSD600(i,1) + datax(i,j)/20  + datay(i,j)/20;
+%     end
+% end
+% Time=0:0.1:499.9;
+% plot(Time,MSD600(:,1),'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ps)','Interpreter','latex')
+% ylabel('MSD (\AA$^{2}$)','Interpreter','latex')
+% legend('T=300 K','T=400 K','T=500 K','T=600 K')
+% %%%%%%%%LOG-MSD%%%%%%%%%%%%%%%%%%%%%%%
+% LMSD10=log(MSD10(2:5000))/log(10);
+% LMSD20=log(MSD20(2:5000))/log(10);
+% LMSD30=log(MSD30(2:5000))/log(10);
+% LMSD50=log(MSD50(2:5000))/log(10);
+% LMSD75=log(MSD75(2:5000))/log(10);
+% LMSD100=log(MSD100(2:5000))/log(10);
+% LMSD150=log(MSD150(2:5000))/log(10);
+% LMSD200=log(MSD200(2:5000))/log(10);
+% LMSD300=log(MSD300(2:5000))/log(10);
+% LMSD400=log(MSD400(2:5000))/log(10);
+% LMSD500=log(MSD500(2:5000))/log(10);
+% LMSD600=log(MSD600(2:5000))/log(10);
+% LTime=log(0.1:0.1:499.9)/log(10);
+% 
+% figure
+% plot(LTime,LMSD10(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% plot(LTime,LMSD20(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% plot(LTime,LMSD30(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% plot(LTime,LMSD50(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% plot(LTime,LMSD100(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% plot(LTime,LMSD200(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% % plot(LTime,LMSD300(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% % hold on
+% plot(LTime,LMSD400(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% hold on
+% % plot(LTime,LMSD500(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% % hold on
+% plot(LTime,LMSD600(:,1),'-o','MarkerSize',2,'LineWidth',0.5)
+% 
+% legend('T=10 K','T=20 K','T=30 K','T=50 K','T=100 K','T=200 K'...
+%     ,'T=400 K','T=600 K')
+% xlabel('log(t) (ps)','Interpreter','latex')
+% ylabel('log(MSD) (\AA$^{2}$)','Interpreter','latex')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %Equi-Partition%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vx=0; vy=0;
+% wx=0; wy=0; wz=0;
+% 
+% for i=1:100001
+%         vx= vx+ (d10(i,11)-d10(i,17))^2;
+%         vy= vy+ (d10(i,12)-d10(i,18))^2;
+%         wx= wx+ d10(i,20)^2;
+%         wy= wy+ d10(i,21)^2;
+%         wz= wz+ d10(i,22)^2;
+% end
+% vx= vx/100001; vy= vy/100001;
+% vrms(1)= sqrt(vx+vy);
+% wx=wx/100001; wy=wy/100001; wz=wz/100001;
+% wrms(1)= sqrt(wx+wy+wz);
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Temp=[10 20 30 50 75 100 150 200 300 400 500 600];
+% figure
+% plot(Temp,vrms,'O','MarkerSize',10,'LineWidth',3)
+% xlabel('Temp (K)', 'FontSize',13,'Interpreter','latex')
+% ylabel('$V_{rms}$ (\AA/ps)', 'FontSize',13,'Interpreter','latex')
+% hold on 
+% t=0:0.1:600;
+% plot(t,0.048*sqrt(t),'-','MarkerSize',10,'LineWidth',3)
+% axis([ 0 600 0 1.5])
+% legend('Equipartition theorem','Simulation results')
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% figure
+% plot(Temp,wrms,'O','MarkerSize',10,'LineWidth',3)
+% xlabel('Temp (K)', 'FontSize',13,'Interpreter','latex')
+% ylabel('$\omega_{rms}$ $ $ $(rad/ps)$', 'FontSize',13,'Interpreter','latex')
+% hold on 
+% t=0:0.1:600;
+% plot(t,0.021*sqrt(t),'-','MarkerSize',10,'LineWidth',3)
+% axis([ 0 600 0 0.8])
+% legend('Equipartition theorem','Simulation results')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Time-Omega%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Time=0:0.0001:10;
+% 
+% ang10_x=0;ang10_y=0;ang10_z=0;
+% for i=1:100001
+%     ang_10_x(i)=ang10_x;
+%     ang_10_y(i)=ang10_y;
+%     ang_10_z(i)=ang10_z;
+%     ang10_x= ang10_x + d10(i,20)*0.05;
+%     ang10_y= ang10_y + d10(i,21)*0.05;
+%     ang10_z= ang10_z + d10(i,22)*0.1;
+%     
+% end
+% ang400_x=0;ang400_y=0;ang400_z=0;
+% for i=1:100001
+%     ang_400_x(i)=ang400_x;
+%     ang_400_y(i)=ang400_y;
+%     ang_400_z(i)=ang400_z;
+%     ang400_x= ang400_x + d400(i,20)*0.1;
+%     ang400_y= ang400_y + d400(i,21)*0.1;
+%     ang400_z= ang400_z + d400(i,22)*0.1;
+% end
+% 
+% figure
+% plot(Time,ang_10_x,'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ns)','Interpreter','latex')
+% ylabel('C60 rotation (rad)','Interpreter','latex')
+% hold on
+% plot(Time,ang_10_y,'-','MarkerSize',10,'LineWidth',3)
+% hold on
+% plot(Time,ang_10_z,'-','MarkerSize',10,'LineWidth',3)
+% legend('Rot_x','Rot_y','Rot_z')
+% 
+% figure
+% plot(Time,ang_400_x,'-','MarkerSize',10,'LineWidth',3)
+% xlabel('t (ns)','Interpreter','latex')
+% ylabel('C60 rotation (rad)','Interpreter','latex')
+% hold on
+% plot(Time,ang_400_y,'-','MarkerSize',10,'LineWidth',3)
+% hold on
+% plot(Time,ang_400_z,'-','MarkerSize',10,'LineWidth',3)
+% legend('Rot_x','Rot_y','Rot_z')
+% 
+% deltax_10=max(x_10)-min(x_10)
+% deltay_10=max(y_10)-min(y_10)
+% 
+% deltax_400=max(x_400)-min(x_400)
+% deltay_400=max(y_400)-min(y_400)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%max_mean_min_std_potential%%%%%%%%%%%%%%%%%%%%%
+% average_u= zeros(1,12);
+% maximum_u= zeros(1,12);
+% minimum_u= zeros(1,12);
+% standard_u= zeros(1,12);
+% 
+% average_u(1)= mean(d10(:,7));
+% maximum_u(1)= max(d10(:,7));
+% minimum_u(1)= min(d10(:,7));
+% standard_u(1)= std(d10(:,7));
+% Temp=[10 20 30 50 75 100 150 200 300 400 500 600];
+% 
+% figure
+% plot(Temp,average_u,'s-','MarkerSize',10,'LineWidth',3)
+% errorbar(Temp,average_u,standard_u,'s-','MarkerSize',10,'LineWidth',3)
+% hold on 
+% plot(Temp,maximum_u,'s-','MarkerSize',10,'LineWidth',3)
+% hold on
+% plot(Temp,minimum_u,'s-','MarkerSize',10,'LineWidth',3)
+% legend('Mean and STD','Maximum','Minimum')
+% xlabel('Temp (K)', 'FontSize',13,'Interpreter','latex')
+% ylabel('C60-BN LJ interaction(eV)', 'FontSize',13,'Interpreter','latex')
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%Jump_Potenital%%%%%%%%%%%%%%%%%%%%%%%%%
+% jump=zeros(1,12);
+% for i=1:100001
+%     if d10(i,7)>= -0.95
+%         jump(1)=jump(1)+100/100001;
+%     end
+%     if d20(i,7)>= -0.95
+%         jump(2)=jump(2)+100/100001;
+%     end
+%     if d30(i,7)>= -0.95
+%         jump(3)=jump(3)+100/100001;
+%     end
+%     if d50(i,7)>= -0.95
+%         jump(4)=jump(4)+100/100001;
+%     end
+%     if d75(i,7)>= -0.95
+%         jump(5)=jump(5)+100/100001;
+%     end
+%     if d100(i,7)>= -0.95
+%         jump(6)=jump(6)+100/100001;
+%     end
+%     if d150(i,7)>= -0.95
+%         jump(7)=jump(7)+100/100001;
+%     end
+%     if d200(i,7)>= -0.95
+%         jump(8)=jump(8)+100/100001;
+%     end
+%     if d300(i,7)>= -0.95
+%         jump(9)=jump(9)+100/100001;
+%     end
+%     if d400(i,7)>= -0.95
+%         jump(10)=jump(10)+100/100001;
+%     end
+%     if d500(i,7)>= -0.95
+%         jump(11)=jump(11)+100/100001;
+%     end
+%     if d600(i,7)>= -0.95
+%         jump(12)=jump(12)+100/100001;
+%     end
+%     
+% end
+% 
+% 
+% Temp=[10 20 30 50 75 100 150 200 300 400 500 600];
+% plot(Temp,jump,'O-','MarkerSize',5,'LineWidth',3)
+% xlabel('Temperature (K)', 'FontSize',13,'Interpreter','latex')
+% ylabel('Percentage of powerful jumps', 'FontSize',13,'Interpreter','latex')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Leavy_Flight%%%%%%%%%%%%%%%%%%%%%
+% Time=0:0.0001:10;
+% plot(Time(1,1:1500),x_300(1:1500,1),'-','MarkerSize',5,'LineWidth',3)
+% ylabel('X (\AA)', 'FontSize',13,'Interpreter','latex')
+% xlabel('t (ns)', 'FontSize',13,'Interpreter','latex')
+% hold on 
+% plot(Time(1,1:1500),y_300(1:1500,1),'-','MarkerSize',5,'LineWidth',3)
+% legend ('300_X','300_Y')
+% 
+% figure
+% plot(x_300(1:1500,1),y_300(1:1500,1),'-','MarkerSize',5,'LineWidth',3)
+% 
+% figure
+% subplot(3,4,4)        % add first plot in 2 x 2 grid
+% plot(x_300(1:1500,1),y_300(1:1500,1),'-','MarkerSize',5,'LineWidth',3)
+% ylabel('X (\AA)', 'FontSize',13,'Interpreter','latex')
+% xlabel('Y (\AA)', 'FontSize',13,'Interpreter','latex')
+% axis([0 150 -150 0])
+% subplot(3,4,8)        % add second plot in 2 x 2 grid
+% plot(x_300(32000:38000,1),y_300(32000:38000,1),'-','MarkerSize',5,'LineWidth',3)
+% ylabel('X (\AA)', 'FontSize',13,'Interpreter','latex')
+% xlabel('X (\AA)', 'FontSize',13,'Interpreter','latex')
+% 
+% subplot(3,4,12)        % add second plot in 2 x 2 grid
+% plot(x_300(80000:85000,1),y_300(80000:85000,1),'-','MarkerSize',5,'LineWidth',3)
+% ylabel('X (\AA)', 'FontSize',13,'Interpreter','latex')
+% xlabel('Y (\AA)', 'FontSize',13,'Interpreter','latex')
+% axis([200 600 -600 100])
+% 
+% subplot(3,4,[1 2 3 5 6 7 9 10 11])    % add third plot to span positions 3 and 4
+% plot(Time(1,1:100000),x_300(1:100000,1),'-','MarkerSize',5,'LineWidth',3)
+% ylabel('C60 components of position vector(\AA)', 'FontSize',13,'Interpreter','latex')
+% xlabel('t (ns)', 'FontSize',13,'Interpreter','latex')
+% hold on 
+% plot(Time(1,1:100000),y_300(1:100000,1),'-','MarkerSize',5,'LineWidth',3)
+% legend ('X_{C60}','Y_{C60}','Interpreter','latex')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%Horizontal_rotation%%%%%%%%%%%%%%%%%%%%%
+% Time=0:0.0001:10;
+% angx(1)=0;
+% angy(1)=0;
+% 
+% for i=2:100001
+%     angx(i)= angx(i-1) + d400(i,20)*0.1;
+%     angy(i)= angy(i-1) + d400(i,21)*0.1; 
+% end
+% nx(1)=0; ny(1)=0;
+% b=2; c=2;
+% t1(1)=0; t2(1)=0;
+% for i=1:100001
+%     if angx(i)> (2*pi)
+%         nx(b)=nx(b-1)+1;
+%         angx(i)=angx(i-1)-(2*pi);
+%         t1(b)=i*0.0001;
+%         b=b+1;
+%     end
+%     if angy(i)> (2*pi)
+%         ny(c)=ny(c-1)+1;
+%         angy(i)=angy(i-1)-(2*pi);
+%         t2(c)=i*0.0001;
+%         c=c+1;
+%     end
+% end
+% nx(b-1)
+% ny(c-1)
+% plot(t1,nx,'-','MarkerSize',5,'LineWidth',3)
+% hold on 
+% plot(t2,ny,'-','MarkerSize',5,'LineWidth',3)
+% legend('nx','ny')

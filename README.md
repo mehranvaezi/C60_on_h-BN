@@ -1,7 +1,7 @@
 # C60_on_h-BN
 The files include input, data and codes employed for MD simulation of C60 molecule on the hexagonal boron-nitride layer. 
 
-File name       Content
+In the following we see the name of the files and their contents. 
 input --> LAMMPS input file
 data  --> LAMMPS data file
 10K   --> output data at 10 kelvin
